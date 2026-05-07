@@ -1,0 +1,28 @@
+{
+  "name": "headhunting-power-station",
+  "version": "1.0.0",
+  "description": "猎头全方位能力提升与精准交付赋能系统",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js",
+    "test": "node test.js",
+    "admin": "node admin-cli.js",
+    "demo": "node demo.js",
+    "init-data": "node scripts/init-data.js",
+    "monthly-settlement": "node scripts/settlement.js"
+  },
+  "keywords": [
+    "猎头",
+    "招聘",
+    "人才",
+    "headhunting",
+    "recruitment"
+  ],
+  "author": "猎头加油站团队",
+  "license": "MIT",
+  "dependencies": {
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {}
+}

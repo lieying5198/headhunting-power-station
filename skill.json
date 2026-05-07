@@ -1,0 +1,190 @@
+{
+  "id": "headhunting-power-station",
+  "version": "1.0.0",
+  "name": "🦁 猎头AI加油站",
+  "name_en": "Headhunting Power Station",
+  "description": "猎头全方位能力提升与精准交付赋能系统 - 集百源之智，助精准交付，让每个猎头都能成为行业专家",
+  "category": "productivity",
+  "tags": ["猎头", "招聘", "人才", "HR", "交付"],
+  "icon": "🦁",
+  "color": "#FF6B35",
+  
+  "commands": {
+    "prefix": "/",
+    "items": [
+      {
+        "name": "help",
+        "alias": ["h", "帮助"],
+        "description": "显示帮助信息",
+        "example": "/help 或 /h"
+      },
+      {
+        "name": "search",
+        "alias": ["s", "搜索", "查"],
+        "description": "搜索知识库内容",
+        "args": ["query:string:搜索关键词"],
+        "example": "/search 芯片行业薪资"
+      },
+      {
+        "name": "jdanalyze",
+        "alias": ["jd", "jd分析", "jdan"],
+        "description": "深度解析JD，提取候选人画像",
+        "args": ["jd:string:职位描述内容或链接"],
+        "example": "/jdanalyze 粘贴完整JD内容..."
+      },
+      {
+        "name": "candidate",
+        "alias": ["cv", "候选人", "ca"],
+        "description": "评估候选人背景和匹配度",
+        "args": ["resume:string:简历内容或候选人背景"],
+        "example": "/candidate 粘贴候选人简历..."
+      },
+      {
+        "name": "match",
+        "alias": ["m", "匹配", "匹"],
+        "description": "JD与候选人精准匹配",
+        "args": ["jd:string:职位描述", "candidate:string:候选人背景"],
+        "example": "/match JD内容 | 候选人简历"
+      },
+      {
+        "name": "insight",
+        "alias": ["i", "洞察", "洞"],
+        "description": "获取行业洞察和市场分析",
+        "args": ["topic:string:行业或话题"],
+        "example": "/insight 新能源汽车人才趋势"
+      },
+      {
+        "name": "daily",
+        "alias": ["日报", "今日"],
+        "description": "获取每日行业资讯",
+        "example": "/daily"
+      },
+      {
+        "name": "learn",
+        "alias": ["l", "学习", "学"],
+        "description": "教授新知识给技能",
+        "args": ["content:string:要学习的知识内容"],
+        "example": "/learn 芯片设计行业知识..."
+      },
+      {
+        "name": "ask",
+        "alias": ["a", "问答", "问"],
+        "description": "智能问答",
+        "args": ["question:string:问题"],
+        "example": "/ask 如何快速提升mapping能力"
+      },
+      {
+        "name": "report",
+        "alias": ["r", "报告"],
+        "description": "生成分析报告",
+        "args": ["type:string:报告类型"],
+        "example": "/report 薪资调研"
+      },
+      {
+        "name": "train",
+        "alias": ["t", "训练", "提升"],
+        "description": "获取能力提升建议",
+        "args": ["ability:string:能力方向"],
+        "example": "/train 沟通谈判"
+      },
+      {
+        "name": "feedback",
+        "alias": ["f", "反馈", "回"],
+        "description": "提供交付结果反馈",
+        "args": ["result:string:交付结果"],
+        "example": "/feedback 候选人张三成功入职，年薪50万"
+      },
+      {
+        "name": "register",
+        "alias": ["reg", "注册"],
+        "description": "注册成为会员",
+        "args": ["name:string:姓名", "phone:string:电话", "wechat:string:微信号", "referrer?:string:推荐人手机号"],
+        "example": "/register 张三 13800138000 wx_zhangsan ABCD1234"
+      },
+      {
+        "name": "upgrade",
+        "alias": ["up", "升级"],
+        "description": "升级会员等级",
+        "args": ["plan?:string:套餐类型 monthly|yearly|lifetime"],
+        "example": "/upgrade yearly"
+      },
+      {
+        "name": "referrals",
+        "alias": ["refs", "推荐", "下线"],
+        "description": "查看我的推荐人和推荐用户",
+        "example": "/referrals"
+      },
+      {
+        "name": "earnings",
+        "alias": ["earn", "收益", "佣金"],
+        "description": "查看我的收益和提现",
+        "example": "/earnings"
+      },
+      {
+        "name": "withdraw",
+        "alias": ["wd", "提现"],
+        "description": "申请提现收益",
+        "args": ["amount?:number:提现金额"],
+        "example": "/withdraw 500"
+      },
+      {
+        "name": "status",
+        "alias": ["vip", "会员", "等级"],
+        "description": "查看当前会员状态",
+        "example": "/status"
+      },
+      {
+        "name": "admin",
+        "alias": ["管理"],
+        "description": "管理员命令（仅发布者可用）",
+        "args": ["action:string:操作类型", "params?:string:参数"],
+        "example": "/admin members 或 /admin earnings"
+      }
+    ]
+  },
+  
+  "permissions": {
+    "ima_knowledge": true,
+    "ima_search": true,
+    "github": false,
+    "file_system": false,
+    "web_access": true,
+    "web_search": true
+  },
+  
+  "limits": {
+    "free": {
+      "daily_requests": 3,
+      "search_results": 5,
+      "jd_analysis": 1,
+      "report_generation": false
+    },
+    "pro": {
+      "daily_requests": -1,
+      "search_results": 50,
+      "jd_analysis": -1,
+      "report_generation": true
+    }
+  },
+  
+  "pricing": {
+    "monthly": 99,
+    "yearly": 599,
+    "lifetime": 1999,
+    "currency": "CNY"
+  },
+  
+  "distribution": {
+    "enabled": true,
+    "referral_reward_1": 0.20,
+    "referral_reward_2": 0.05,
+    "max_levels": 2,
+    "min_withdraw": 100
+  },
+  
+  "system_prompt": "请参考 system_prompt.md 文件",
+  
+  "handlers": {
+    "directory": "handlers"
+  }
+}

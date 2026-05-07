@@ -1,0 +1,158 @@
+{
+  "manifest_version": "1.0",
+  "skill_id": "headhunting-power-station",
+  "skill_name": "🦁 猎头AI加油站",
+  "publisher": {
+    "id": "headhunting_station_team",
+    "name": "猎头AI加油站团队",
+    "contact": "headhunting_station@company.com"
+  },
+  "release": {
+    "version": "1.0.0",
+    "release_date": "2026-05-07",
+    "status": "active"
+  },
+  "pricing": {
+    "free": {
+      "name": "免费版",
+      "price": 0,
+      "features": [
+        "每日3次基础搜索",
+        "JD基础解析",
+        "行业资讯订阅",
+        "基础问答功能"
+      ]
+    },
+    "monthly": {
+      "name": "月卡会员",
+      "price": 99,
+      "currency": "CNY",
+      "payment_method": "微信支付",
+      "period": "month",
+      "features": [
+        "无限次使用",
+        "深度JD解析",
+        "候选人精准评估",
+        "行业洞察报告",
+        "知识库全文检索",
+        "能力提升建议",
+        "优先客服支持"
+      ],
+      "refund_note": "一经开通，不予退费"
+    },
+    "yearly": {
+      "name": "年卡会员",
+      "price": 599,
+      "currency": "CNY",
+      "payment_method": "微信支付",
+      "period": "year",
+      "features": [
+        "月卡全部权益",
+        "专属年度分析报告",
+        "优先功能体验",
+        "专属社群加入"
+      ],
+      "savings": "省¥589 vs 月付",
+      "refund_note": "一经开通，不予退费"
+    },
+    "lifetime": {
+      "name": "终身会员",
+      "price": 1999,
+      "currency": "CNY",
+      "payment_method": "微信支付",
+      "period": "lifetime",
+      "features": [
+        "年卡全部权益",
+        "未来所有功能免费",
+        "一对一专属顾问",
+        "定制化能力培训"
+      ],
+      "savings": "一次性付费，永久使用",
+      "refund_note": "一经开通，不予退费"
+    }
+  },
+  "distribution": {
+    "enabled": true,
+    "levels": [
+      {
+        "level": 1,
+        "name": "一级推荐",
+        "reward_rate": 0.20,
+        "description": "直接推荐用户付费"
+      },
+      {
+        "level": 2,
+        "name": "二级推荐",
+        "reward_rate": 0.05,
+        "description": "推荐人的推荐用户付费"
+      }
+    ],
+    "conditions": {
+      "min_withdraw": 100,
+      "withdraw_currency": "CNY",
+      "settlement_cycle": "monthly"
+    }
+  },
+  "distribution_tiers": {
+    "l2_upgrade": {
+      "name": "分销会员",
+      "price": 0,
+      "requirement": "注册后自动成为分销会员",
+      "benefits": [
+        "查看专属推荐链接",
+        "追踪推荐用户",
+        "获得佣金分成",
+        "查看收益明细"
+      ]
+    }
+  },
+  "analytics": {
+    "tracked_events": [
+      "page_view",
+      "registration",
+      "upgrade",
+      "command_usage",
+      "feature_usage",
+      "referral_signup",
+      "referral_purchase",
+      "withdrawal"
+    ],
+    "dashboard_metrics": [
+      "total_users",
+      "active_users",
+      "revenue",
+      "referrals",
+      "commissions_paid"
+    ]
+  },
+  "privacy": {
+    "data_collected": [
+      "name",
+      "phone",
+      "wechat",
+      "usage_behavior"
+    ],
+    "data_usage": [
+      "会员资格验证",
+      "佣金结算",
+      "服务优化"
+    ],
+    "third_party_sharing": false
+  },
+  "payment": {
+    "methods": ["微信支付"],
+    "currency": "CNY",
+    "process_note": "支付成功后自动开通会员权益"
+  },
+  "terms": {
+    "refund_policy": "一经注册，不予退费",
+    "refund_policy_note": "虚拟服务一经开通即开始使用，注册后不支持退款，请谨慎购买",
+    "service_agreement": "使用本服务即表示同意服务条款",
+    "privacy_policy": "我们重视您的隐私，详细政策请参阅隐私条款"
+  },
+  "support": {
+    "email": "headhunting_station@company.com",
+    "wechat": "headhunting_station_admin",
+    "response_time": "24小时内"
+  }
+}
