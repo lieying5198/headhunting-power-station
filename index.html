@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🦁 猎头能量站 - 让每个猎头都成为精准交付的高手</title>
+  <meta name="description" content="猎头全方位能力提升与精准交付赋能系统，提供JD解析、候选人评估、精准匹配、行业洞察等功能">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- 顶部导航 -->
+  <header class="header">
+    <div class="container header-inner">
+      <div class="logo">
+        <span class="logo-icon">🦁</span>
+        <span class="logo-text">猎头能量站</span>
+      </div>
+      <nav class="nav" id="nav">
+        <a href="#home" class="nav-link active">首页</a>
+        <a href="#courses" class="nav-link">精选课程</a>
+        <a href="#resources" class="nav-link">干货资源</a>
+        <a href="#pricing" class="nav-link">会员</a>
+        <a href="#about" class="nav-link">关于</a>
+      </nav>
+      <div class="header-actions">
+        <button class="btn btn-ghost" id="loginBtn">登录</button>
+        <button class="btn btn-primary" id="registerBtn">免费注册</button>
+      </div>
+      <button class="mobile-menu" id="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- 用户信息栏（登录后显示） -->
+  <div class="user-bar" id="userBar" style="display:none;">
+    <div class="container">
+      <div class="user-info">
+        <span class="user-name" id="userName">用户</span>
+        <span class="user-level" id="userLevel">免费版</span>
+        <span class="user-points">💰 <span id="userPoints">0</span> 积分</span>
+      </div>
+      <div class="user-actions">
+        <button class="btn btn-sm" onclick="showSignIn()">📅 签到</button>
+        <button class="btn btn-sm" onclick="showInvite()">👥 邀请</button>
+        <button class="btn btn-sm btn-primary" onclick="showUpgrade()">升级VIP</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 首页横幅 -->
+  <section class="hero" id="home">
+    <div class="container">
+      <h1 class="hero-title">🦁 让每个猎头都成为<br><span class="highlight">精准交付</span>的高手</h1>
+      <p class="hero-desc">一站式猎头能力提升平台，JD解析、候选人评估、精准匹配、行业洞察，助力猎头业绩倍增</p>
+      <div class="hero-actions">
+        <button class="btn btn-primary btn-lg" onclick="showRegister()">免费注册</button>
+        <button class="btn btn-outline btn-lg" onclick="scrollTo('#features')">了解更多</button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num" id="statUsers">2,847</span>
+          <span class="stat-label">注册用户</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">98%</span>
+          <span class="stat-label">满意度</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">50+</span>
+          <span class="stat-label">精选课程</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 功能展示 -->
+  <section class="features" id="features">
+    <div class="container">
+      <h2 class="section-title">核心功能</h2>
+      <p class="section-desc">专为猎头打造的高效工具集</p>
+      
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon">📋</div>
+          <h3>JD深度解析</h3>
+          <p>智能分析职位描述，提取关键能力要求、市场薪酬基准、隐藏需求，生成候选人画像</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">👤</div>
+          <h3>候选人评估</h3>
+          <p>基于简历智能评估，输出匹配度分析、优劣势对比、面试问题建议</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">🎯</div>
+          <h3>精准匹配</h3>
+          <p>JD与候选人双向匹配，技能匹配度、经验匹配度、动机匹配度多维度分析</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3>行业洞察</h3>
+          <p>实时行业趋势、人才需求变化、薪酬走势，助你把握市场脉搏</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">📰</div>
+          <h3>每日资讯</h3>
+          <p>精选猎头行业资讯、政策解读、实战技巧，每日推送</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">💬</div>
+          <h3>问答咨询</h3>
+          <p>AI智能问答，解决招聘难题，分享实战经验</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 精选课程 -->
+  <section class="courses" id="courses">
+    <div class="container">
+      <h2 class="section-title">🔥 精选课程</h2>
+      <p class="section-desc">行业专家倾情分享，快速提升你的猎头技能</p>
+      <div class="article-grid" id="courseList">
+        <!-- 课程列表通过 JS 动态加载 -->
+        <div class="loading">加载中...</div>
+      </div>
+      <div class="section-more">
+        <button class="btn btn-outline" onclick="showAllCourses()">查看全部课程 →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 干货资源 -->
+  <section class="resources" id="resources">
+    <div class="container">
+      <h2 class="section-title">📚 干货资源</h2>
+      <p class="section-desc">实用的工具、模板、报告，助你事半功倍</p>
+      <div class="article-grid" id="resourceList">
+        <!-- 资源列表通过 JS 动态加载 -->
+        <div class="loading">加载中...</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 会员体系 -->
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <h2 class="section-title">会员体系</h2>
+      <p class="section-desc">灵活的会员等级，满足不同需求</p>
+      
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <h3 class="pricing-name">免费版</h3>
+            <div class="pricing-price">
+              <span class="price">¥0</span>
+              <span class="period">永久免费</span>
+            </div>
+          </div>
+          <ul class="pricing-features">
+            <li class="included">每日3次基础功能</li>
+            <li class="included">公开课程学习</li>
+            <li class="included">基础搜索</li>
+            <li class="excluded">JD深度解析</li>
+            <li class="excluded">候选人评估</li>
+            <li class="excluded">精准匹配</li>
+            <li class="excluded">专属客服</li>
+          </ul>
+          <button class="btn btn-outline btn-block" onclick="showRegister()">免费注册</button>
+        </div>
+        
+        <div class="pricing-card featured">
+          <div class="pricing-badge">最受欢迎</div>
+          <div class="pricing-header">
+            <h3 class="pricing-name">年度VIP</h3>
+            <div class="pricing-price">
+              <span class="price">¥599</span>
+              <span class="period">/年</span>
+            </div>
+          </div>
+          <ul class="pricing-features">
+            <li class="included">无限次使用全部功能</li>
+            <li class="included">全部课程学习</li>
+            <li class="included">优先客服响应</li>
+            <li class="included">专属学习群</li>
+            <li class="included">年度数据分析报告</li>
+            <li class="included">邀请分销20%佣金</li>
+          </ul>
+          <button class="btn btn-primary btn-block" onclick="handleUpgrade('yearly')">立即开通</button>
+        </div>
+        
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <h3 class="pricing-name">永久VIP</h3>
+            <div class="pricing-price">
+              <span class="price">¥1999</span>
+              <span class="period">/终身</span>
+            </div>
+          </div>
+          <ul class="pricing-features">
+            <li class="included">永久无限使用</li>
+            <li class="included">全部课程+后续更新</li>
+            <li class="included">1对1专属顾问</li>
+            <li class="included">优先内推资源</li>
+            <li class="included">邀请分销20%+5%佣金</li>
+            <li class="included">线下活动优先权</li>
+          </ul>
+          <button class="btn btn-outline btn-block" onclick="handleUpgrade('lifetime')">立即开通</button>
+        </div>
+      </div>
+      
+      <p class="pricing-note">⚠️ 一经开通，不予退费。请根据需求谨慎购买。</p>
+    </div>
+  </section>
+
+  <!-- 关于我们 -->
+  <section class="about" id="about">
+    <div class="container">
+      <h2 class="section-title">关于分销</h2>
+      <p class="section-desc">成为分销会员，享受额外收益</p>
+      
+      <div class="distribution">
+        <div class="dis-graph">
+          <h4>分销奖励机制</h4>
+          <pre>
+您 (分销会员)
+    │
+    ├── 推荐 ───▶ 用户A (付费¥599)
+    │              │
+    │              └── 您获得: ¥599 × 20% = ¥119.8
+    │
+    └── 推荐 ───▶ 用户B (付费¥599)
+                    │
+                    └── 您获得: ¥119.8
+                    └── 用户A获得: ¥599 × 5% = ¥29.95
+          </pre>
+        </div>
+        
+        <div class="dis-rules">
+          <h4>分销规则</h4>
+          <ul>
+            <li><strong>一级分销：</strong>直接推荐好友付费，获得20%佣金</li>
+            <li><strong>二级分销：</strong>好友再推荐，获得5%佣金</li>
+            <li><strong>三级分销：</strong>好友的好友再推荐，获得2%佣金</li>
+            <li><strong>佣金形式：</strong>积分奖励，可提现或兑换服务</li>
+            <li><strong>提现门槛：</strong>满100元即可申请提现</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="invite-section">
+        <h3>我的邀请链接</h3>
+        <div class="invite-box" id="inviteBox">
+          <input type="text" class="invite-link" id="inviteLink" readonly placeholder="登录后获取邀请链接">
+          <button class="btn btn-primary" onclick="copyInviteLink()">复制链接</button>
+        </div>
+        <div class="invite-stats" id="inviteStats">
+          <span>已邀请: <strong id="inviteCount">0</strong> 人</span>
+          <span>|</span>
+          <span>累计收益: <strong id="inviteEarnings">¥0</strong></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 底部 -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <span class="logo-icon">🦁</span>
+          <span>猎头能量站</span>
+        </div>
+        <div class="footer-links">
+          <a href="#">使用条款</a>
+          <a href="#">隐私政策</a>
+          <a href="#">退款政策</a>
+          <a href="#">联系客服</a>
+        </div>
+      </div>
+      <p class="footer-copy">© 2024 猎头能量站. 一经注册，不予退费。</p>
+    </div>
+  </footer>
+
+  <!-- 登录弹窗 -->
+  <div class="modal" id="loginModal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('loginModal')">×</button>
+      <h2>登录</h2>
+      <form id="loginForm" onsubmit="handleLogin(event)">
+        <div class="form-group">
+          <label>邮箱</label>
+          <input type="email" name="email" required placeholder="请输入邮箱">
+        </div>
+        <div class="form-group">
+          <label>密码</label>
+          <input type="password" name="password" required placeholder="请输入密码">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">登录</button>
+        <p class="form-footer">
+          还没有账号？<a href="#" onclick="switchModal('loginModal', 'registerModal')">立即注册</a>
+        </p>
+      </form>
+      <div class="social-login">
+        <p>其他登录方式</p>
+        <button class="btn btn-wechat" onclick="wechatLogin()">
+          <span>微信</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 注册弹窗 -->
+  <div class="modal" id="registerModal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('registerModal')">×</button>
+      <h2>免费注册</h2>
+      <form id="registerForm" onsubmit="handleRegister(event)">
+        <div class="form-group">
+          <label>姓名</label>
+          <input type="text" name="name" required placeholder="请输入姓名">
+        </div>
+        <div class="form-group">
+          <label>邮箱</label>
+          <input type="email" name="email" required placeholder="请输入邮箱">
+        </div>
+        <div class="form-group">
+          <label>密码</label>
+          <input type="password" name="password" required placeholder="设置密码" minlength="6">
+        </div>
+        <div class="form-group">
+          <label>邀请码（选填）</label>
+          <input type="text" name="invite_code" id="inviteCode" placeholder="填写邀请码获得50积分">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">立即注册</button>
+        <p class="form-footer">
+          已有账号？<a href="#" onclick="switchModal('registerModal', 'loginModal')">立即登录</a>
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <!-- 签到弹窗 -->
+  <div class="modal" id="signInModal">
+    <div class="modal-content modal-sm">
+      <button class="modal-close" onclick="closeModal('signInModal')">×</button>
+      <h2>每日签到</h2>
+      <div class="signin-content">
+        <div class="signin-calendar" id="signinCalendar">
+          <!-- 签到日历 -->
+        </div>
+        <button class="btn btn-primary btn-block" id="signInBtn" onclick="doSignIn()">立即签到</button>
+        <p class="signin-tip">连续签到7天可获得双倍积分！</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 邀请弹窗 -->
+  <div class="modal" id="inviteModal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('inviteModal')">×</button>
+      <h2>邀请好友</h2>
+      <div class="invite-detail">
+        <p>您的专属邀请码：<strong id="myInviteCode">------</strong></p>
+        <div class="invite-share">
+          <p>分享链接给好友：</p>
+          <input type="text" id="shareLink" readonly class="share-link-input">
+          <button class="btn btn-primary" onclick="copyShareLink()">复制链接</button>
+        </div>
+        <div class="invite-rewards">
+          <h4>邀请奖励</h4>
+          <ul>
+            <li>好友注册成功 → 获得50积分</li>
+            <li>好友付费购买 → 获得20%佣金</li>
+            <li>好友的好友付费 → 获得5%佣金</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 支付弹窗 -->
+  <div class="modal" id="payModal">
+    <div class="modal-content modal-sm">
+      <button class="modal-close" onclick="closeModal('payModal')">×</button>
+      <h2>确认支付</h2>
+      <div class="pay-content">
+        <p class="pay-product" id="payProduct">年度VIP</p>
+        <p class="pay-amount">¥<span id="payAmount">599</span></p>
+        <div class="pay-methods">
+          <button class="pay-method active" onclick="selectPayMethod('wechat')">
+            <span class="pay-icon">微</span> 微信支付
+          </button>
+          <button class="pay-method" onclick="selectPayMethod('alipay')">
+            <span class="pay-icon">支</span> 支付宝
+          </button>
+        </div>
+        <button class="btn btn-primary btn-block" onclick="confirmPay()">确认支付</button>
+        <p class="pay-note">⚠️ 一经开通，不予退费</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
